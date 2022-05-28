@@ -26,6 +26,11 @@ export function App() {
         const url = await resultPdf.saveAsBase64({ dataUri: true });
         const preview: HTMLIFrameElement = document.getElementById("pdf-preview")! as any;
         preview.src = url;
+        const byte = await resultPdf.save();
+        var blob = new Blob([byte], { type: "application/pdf" });
+        var link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.click();
       };
 
       fileReader.readAsArrayBuffer(file);
