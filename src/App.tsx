@@ -3,7 +3,6 @@ import React from "react";
 import { useDropzone } from "react-dropzone";
 
 export function App() {
-  const [results, setResults] = React.useState<any[]>([]);
   const onDrop = React.useCallback((acceptedFiles: Blob[]) => {
     acceptedFiles.forEach((file) => {
       const fileReader = new FileReader();
@@ -48,6 +47,7 @@ export function App() {
             fontFamily: "'Open Sans', Arial, Helvetica, sans-serif",
             border: "1px solid dodgerblue",
             width: "500px",
+            maxWidth: "95%",
             backgroundColor: "#1E90FF16",
             borderRadius: "10px",
             cursor: "pointer",
@@ -57,7 +57,7 @@ export function App() {
         </div>
       </div>
       <br />
-      <iframe id="pdf-preview" style={{ width: "800px", maxWidth: "100vw", height: "80vh" }}></iframe>
+      <iframe id="pdf-preview" style={{ width: "800px", maxWidth: "95%", height: "80vh" }}></iframe>
     </div>
   );
 }
